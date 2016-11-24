@@ -24,6 +24,9 @@ class ExtractWeather {
                     
                     let weatherData = try JSONSerialization.jsonObject(with: jsonData as Data, options: .mutableContainers) as! [String:AnyObject]
                     
+                    let current = weatherInfo["currently"] as? [String: AnyObject]
+                    let currTemp = currentlyInfo?["temperature"] as! String
+                    
                 } catch {
                     NSLog("Failed to make request for weather data from DarkSky API")
                 }

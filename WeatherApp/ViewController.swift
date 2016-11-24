@@ -108,7 +108,13 @@ class ViewController: UIViewController {
                     for eachDict in incomingDataByMin!{
                         if(eachDict["precipProbability"] as! Double == 1.0){
                             //we must set the rain instance variables
-                            
+                            let hexTime: AnyObject = d["time"] as AnyObject
+                            let date = NSDate(timeIntervalSince1970: hexTime as! TimeInterval)
+                            print(date)
+                            let calendar = NSCalendar.current
+                            self.minWillRain = calendar.component(.minute, from: date as Date)
+                            self.hourWillRain = calendar.component(.hour, from: date as Date)
+                            break
                             
                         }
                 
